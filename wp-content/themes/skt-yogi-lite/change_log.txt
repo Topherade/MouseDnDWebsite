@@ -1,0 +1,25 @@
+Version 1.0
+i) Intial version Release
+
+Version 1.1
+i) Fixed several issues as reviewer pointed.
+
+Version 1.2
+i) Fixed several issues as reviewer pointed.
+
+Version 1.3
+i) Updates as per reviewer comments.
+
+Version 1.4
+i) Updates as per reviewer comments.
+
+Version 1.5
+i) Updates as per reviewer comments.
+
+Version 1.6
+i)   Updates as per latest WordPress theme requirements.
+ii)  Added logo option.
+iii) Fixed sidebar menu bugs.
+iv)  Slider bug resolved.
+v)   Customizer menu and widget bug resolved.
+v)   Solved WooCommerce Issue.

@@ -1,0 +1,112 @@
+<html>
+<head>
+<title>Generation Generator</title>
+<link href="indexStyle.css" rel="stylesheet" type="text/css">
+
+<script language="JavaScript">
+    function getStat(a,b)
+    {
+		var c = parseInt(a);
+		var d = parseInt(b);
+		var e = ((c+d)/2);
+		if( e > 0 ) { e = Math.floor(e); }
+		else{ e = Math.round(e); }
+		e = e + Math.floor(Math.random() * (5)) - 2;
+    	return (e);
+    }
+</script>
+
+<script language="JavaScript">
+	function generateChild(s1,p1,e1,c1,i1,a1,l1,s2,p2,e2,c2,i2,a2,l2)
+	{
+		var output = "";
+		var gen = Math.round(Math.random());
+		if( gen == 1 ) { output = "Male: "; }
+		else { output = "Female: "; }
+		output = output + getStat(s1,s2) + ", ";
+		output = output + getStat(p1,p2) + ", ";
+		output = output + getStat(e1,e2) + ", ";
+		output = output + getStat(c1,c2) + ", ";
+		output = output + getStat(i1,i2) + ", ";
+		output = output + getStat(a1,a2) + ", ";
+		output = output + getStat(l1,l2);
+		
+		return output;
+	}
+
+
+</script>
+
+<script language="JavaScript">
+    function printChildren(s1,p1,e1,c1,i1,a1,l1,s2,p2,e2,c2,i2,a2,l2)
+    {
+		var count = 0;
+		for( var i = 0; i < 7; i++ ){
+			count = count + Math.round(Math.random());
+		}
+	
+		var output = "";
+		for( var j = 0; j < count; j++ ){
+			output = output + generateChild(s1,p1,e1,c1,i1,a1,l1,s2,p2,e2,c2,i2,a2,l2) + "\n";	
+		}
+	
+    	alert(output);
+    }
+</script>
+
+</head> 
+<body>
+<h1>Generation Generator</h1>
+<p>Enter parent's scores:</p>
+<form>
+	STR:&nbsp; <input type="text" name="fathers_str" id="fathers_str">
+		 <input type="text" name="mothers_str" id="mothers_str">
+   		 <br>
+ 	PAR:&nbsp; <input type="text" name="fathers_par" id="fathers_par">
+		 <input type="text" name="mothers_par" id="mothers_par">
+   		 <br>
+         
+ 	END: <input type="text" name="fathers_end" id="fathers_end">
+		 <input type="text" name="mothers_end" id="mothers_end">
+   		 <br>   
+         
+	CHA: <input type="text" name="fathers_cha" id="fathers_cha">
+		 <input type="text" name="mothers_cha" id="mothers_cha">
+   		 <br>              
+
+	INT:&nbsp;&nbsp; <input type="text" name="fathers_int" id="fathers_int">
+		 <input type="text" name="mothers_int" id="mothers_int">
+   		 <br>
+
+	AGL:&nbsp; <input type="text" name="fathers_agl" id="fathers_agl">
+		 <input type="text" name="mothers_agl" id="mothers_agl">
+   		 <br>
+         
+ 	LUC:&nbsp; <input type="text" name="fathers_luc" id="fathers_luc">
+		 <input type="text" name="mothers_luc" id="mothers_luc">
+   		 <br>
+         
+                 
+         
+    <input type="submit" value="Submit" onClick="printChildren(
+    document.getElementById('fathers_str').value, 
+    document.getElementById('fathers_par').value, 
+    document.getElementById('fathers_end').value, 
+    document.getElementById('fathers_cha').value, 
+    document.getElementById('fathers_int').value, 
+    document.getElementById('fathers_agl').value, 
+    document.getElementById('fathers_luc').value,
+    document.getElementById('mothers_str').value, 
+    document.getElementById('mothers_par').value, 
+    document.getElementById('mothers_end').value, 
+    document.getElementById('mothers_cha').value, 
+    document.getElementById('mothers_int').value, 
+    document.getElementById('mothers_agl').value, 
+    document.getElementById('mothers_luc').value)">
+</form>
+	<footer>
+		&copy;2016 Shane Wehler.  
+	</footer>
+<hr>
+</body>
+</html>
