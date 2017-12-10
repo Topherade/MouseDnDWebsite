@@ -24,7 +24,7 @@ if(!empty($_POST['username']) && !empty($_POST['password']))
      }
      else
      {
-        $registerquery = mysql_query("INSERT INTO Mouse_DnD (Username, Password, EmailAddress) VALUES('".$username."', '".$password."', '".$email."')");
+        $registerquery = mysql_query("INSERT INTO users (Username, Password, EmailAddress) VALUES('".$username."', '".$password."', '".$email."')");
         if($registerquery)
         {
             echo "<h1>Success</h1>";

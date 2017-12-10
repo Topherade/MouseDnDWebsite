@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">  
 <head>  
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />  
-<title>User Management System (Tom Cameron for NetTuts)</title>
+<title>Mouse DnD Login Portal</title>
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>  
 <body>  
@@ -12,10 +12,11 @@
 if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['Username']))
 {
      ?>
- 
-     <h1>Member Area</h1>
-     <pThanks for logging in! You are <code><?=$_SESSION['Username']?></code> and your email address is <code><?=$_SESSION['EmailAddress']?></code>.</p>
       
+       <?php
+        header("Location: http://cats.servebeer.com/MouseDnD/ClanInfo.php"); /*redirect browser */
+        exit();
+       ?>     
      <?php
 }
 elseif(!empty($_POST['username']) && !empty($_POST['password']))
@@ -23,7 +24,7 @@ elseif(!empty($_POST['username']) && !empty($_POST['password']))
     $username = mysql_real_escape_string($_POST['username']);
     $password = md5(mysql_real_escape_string($_POST['password']));
      
-    $checklogin = mysql_query("SELECT * FROM Mouse_DnD WHERE Username = '".$username."' AND Password = '".$password."'");
+    $checklogin = mysql_query("SELECT * FROM users WHERE Username = '".$username."' AND Password = '".$password."'");
      
     if(mysql_num_rows($checklogin) == 1)
     {
@@ -37,6 +38,8 @@ elseif(!empty($_POST['username']) && !empty($_POST['password']))
         echo "<h1>Success</h1>";
         echo "<p>We are now redirecting you to the member area.</p>";
         echo "<meta http-equiv='refresh' content='=2;index.php' />";
+        header("Location: http://cats.servebeer.com/MouseDnD/ClanInfo.php"); /*redirect browser */
+        exit();
     }
     else
     {
