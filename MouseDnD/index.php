@@ -30,9 +30,11 @@ elseif(!empty($_POST['username']) && !empty($_POST['password']))
     {
         $row = mysql_fetch_array($checklogin);
         $email = $row['EmailAddress'];
-         
+        $clanName = $row['clanName'];
+                 
         $_SESSION['Username'] = $username;
         $_SESSION['EmailAddress'] = $email;
+        $_SESSION['ClanName'] = $clanName;
         $_SESSION['LoggedIn'] = 1;
          
         echo "<h1>Success</h1>";

@@ -15,21 +15,6 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['Username']))
      <h1>Clan Info </h1>
      <p>You are <code><?=$_SESSION['Username']?></code> and your email address is <code><?=$_SESSION['EmailAddress']?></code>.</p>
      <p><a href="logout.php">click here to logout</a></p>
-  
-     <?php 
-     if(empty($_SESSION['ClanName']))
-     { 
-     ?>
-     	<p><a href="ClanCreation.php">click here to create your clan</a></p>
-     <?php
-     }
-     else
-     {
-     ?>
-     <p>Your clan is the <code><?=$_SESSION['ClanName']?></code>.</p>
-     <?php
-     }
-     ?>
      <?php
 }
 else
