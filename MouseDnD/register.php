@@ -15,7 +15,7 @@ if(!empty($_POST['username']) && !empty($_POST['password']))
     $password = md5(mysql_real_escape_string($_POST['password']));
     $email = mysql_real_escape_string($_POST['email']);
      
-     $checkusername = mysql_query("SELECT * FROM Mouse_DnD WHERE Username = '".$username."'");
+     $checkusername = mysql_query("SELECT * FROM users WHERE Username = '".$username."'");
       
      if(mysql_num_rows($checkusername) == 1)
      {

@@ -18,8 +18,8 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['Username']))
 	    $clanname = mysql_real_escape_string($_POST['clanname']);
 	    $profession = mysql_real_escape_string($_POST['profession']);
 	    $headquarters = mysql_real_escape_string($_POST['headquarters']);
-	     
-	     $checkclanname = mysql_query("SELECT ClanInfo FROM Mouse_DnD WHERE clanName = '".$clanname."'");
+	    
+            $checkclanname = mysql_query("SELECT * FROM users WHERE clanName = '".$clanname."'");
 	      
 	     if(mysql_num_rows($checkclanname) == 1)
 	     {
@@ -30,20 +30,7 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['Username']))
 	     {
   		$population = rand(30, 40);
 		$treasury = rand(2000, 3000);
-	        $registerquery = mysql_query("INSERT INTO ClanInfo (clanName, clanPopulation, treasury, profession, headquarters) VALUES('".$clanname."', {$treasury}, {$population}, '".$profession."', '".$headquarters."')");
-                
-                if($registerquery)
-                {
-                    echo "<h1>Success</h1>";
-                    echo "<p>Your clan was successfully created. Please <a href=\"ClanInfo.php\">click here to view your Clan</a>.</p>";
-                }
-                else
-                {
-                    echo "<h1>Error</h1>";
-                    echo "<p>Sorry, your clan creation failed. Please go back and try again.</p>";
-                }
-                
-
+	        $registerquery = mysql_query("INSERT INTO ClanInfo (clanName, clanPopulation, treasury, profession, headquarters) VALUES('".$clanname."', '{$treasury}', '{$population}', '".$profession."', '".$headquarters."')");
                 $registerquery = mysql_query("UPDATE users SET clanName = '".$clanname."' WHERE UserName = '".$SESSION[Username]."'");
 
 
