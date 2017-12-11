@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">  
 <head>  
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />  
-<title>Info Info Page</title>
+<title>Clan Info Page</title>
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>  
 <body>  
@@ -13,11 +13,11 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['Username']))
 {
      ?>
      <h1>Clan Info </h1>
-     <p>You are <code><?=$_SESSION['Username']?></code> and your email address is <code><?=$_SESSION['EmailAddress']?></code>.</p>
-     <p><a href="logout.php">click here to logout</a></p>
-  
-     <?php 
-     if(empty($_SESSION['ClanName']))
+     <p>You are logged in as <code><?=$_SESSION['Username']?></code>,<a href="logout.php">click here to logout</a>.</p>  
+     <?php
+     $checkclan = mysql_query("SELECT * FROM users WHERE Username = '".$username."'"); 
+     $row = mysql_fetch_array($checkclan);
+     if(empty($row['clanName']))
      { 
      ?>
      	<p><a href="ClanCreation.php">click here to create your clan</a></p>
@@ -26,7 +26,17 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['Username']))
      else
      {
      ?>
-     <p>Your clan is the <code><?=$_SESSION['ClanName']?></code>.</p>
+
+     <?php
+     $result = mysql_query("SELECT * FROM users WHERE clanName = '".$row['clanName']."'");
+     $row = mysql_fetch_array($result,MYSQL_NUM)
+     ?>
+     <p>Clan Name: <code><?$row['clanName']?></code> </p>
+     <p>Headquarters: <code><?$row['headquarters']?></code></p>
+     <p>Profession: <code><?$row['profession']?></code></p>
+     <p>Treasury: <code><?.$row['treasury']?></code></p>
+     <p>Population: <code><?$row['clanPopulation']?></code></p>
+
      <?php
      }
      ?>

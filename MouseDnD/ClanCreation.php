@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">  
 <head>  
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />  
-<title>Info Info Page</title>
+<title>Clan Creation Page</title>
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>  
 <body>  
@@ -12,9 +12,75 @@
 if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['Username']))
 {
      ?>
-     <h1>Clan Info </h1>
-     <p>You are <code><?=$_SESSION['Username']?></code> and your email address is <code><?=$_SESSION['EmailAddress']?></code>.</p>
-     <p><a href="logout.php">click here to logout</a></p>
+	<?php
+	if(!empty($_POST['clanname']) && !empty($_POST['profession']) && !empty($_POST['headquarters']))
+	{
+	    $clanname = mysql_real_escape_string($_POST['clanname']);
+	    $profession = mysql_real_escape_string($_POST['profession']);
+	    $headquarters = mysql_real_escape_string($_POST['headquarters']);
+	     
+	     $checkclanname = mysql_query("SELECT ClanInfo FROM Mouse_DnD WHERE clanName = '".$clanname."'");
+	      
+	     if(mysql_num_rows($checkclanname) == 1)
+	     {
+	        echo "<h1>Error</h1>";
+	        echo "<p>Sorry, that clan name is taken. Please go back and try again.</p>";
+	     }
+	     else
+	     {
+  		$population = rand(30, 40);
+		$treasury = rand(2000, 3000);
+	        $registerquery = mysql_query("INSERT INTO ClanInfo (clanName, clanPopulation, treasury, profession, headquarters) VALUES('".$clanname."', {$treasury}, {$population}, '".$profession."', '".$headquarters."')");
+                
+                if($registerquery)
+                {
+                    echo "<h1>Success</h1>";
+                    echo "<p>Your clan was successfully created. Please <a href=\"ClanInfo.php\">click here to view your Clan</a>.</p>";
+                }
+                else
+                {
+                    echo "<h1>Error</h1>";
+                    echo "<p>Sorry, your clan creation failed. Please go back and try again.</p>";
+                }
+                
+
+                $registerquery = mysql_query("UPDATE users SET clanName = '".$clanname."' WHERE UserName = '".$SESSION[Username]."'");
+
+
+	 	if($registerquery)
+	        {
+	            echo "<h1>Success</h1>";
+	            echo "<p>Your clan was successfully created. Please <a href=\"ClanInfo.php\">click here to view your Clan</a>.</p>";
+	        }
+	        else
+	        {
+	            echo "<h1>Error</h1>";
+	            echo "<p>Sorry, your clan creation failed. Please go back and try again.</p>";    
+	        }       
+             }
+	}
+	else
+	{
+	    ?>
+     
+	   <h1>Clan Creation</h1>
+	     
+	   <p>Please enter your details below to create your clan.</p>
+     
+	    <form method="post" action="ClanCreation.php" name="ClanCreationform" id="ClanCreationform">
+	    <fieldset>
+	        <label for="clanname">Clan Name:</label><input type="text" name="clanname" id="clanname" /><br />
+	        <label for="profession">Profession:</label><input type="text" name="professsion" id="profession" /><br />
+	        <label for="headquarters">Headquarter's Location:</label><input type="text" name="headquarters" id="headquarters" /><br />
+	        <input type="submit" name="create" id="create" value="create" />
+	    </fieldset>
+	    </form>
+	     
+	<?php
+	}
+	?>
+
+
      <?php
 }
 else
