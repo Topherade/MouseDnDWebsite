@@ -17,6 +17,7 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['Username']))
      <?php
      $checkclan = mysql_query("SELECT * FROM users WHERE Username = '".$username."'"); 
      $row = mysql_fetch_array($checkclan);
+     var_dump($checkclan);
      if(empty($row['clanName']))
      { 
      ?>
