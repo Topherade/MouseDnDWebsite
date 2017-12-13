@@ -15,9 +15,8 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['Username']))
      <h1>Clan Info </h1>
      <p>You are logged in as <code><?=$_SESSION['Username']?></code>,<a href="logout.php">click here to logout</a>.</p>  
      <?php
-     $checkclan = mysql_query("SELECT * FROM users WHERE Username = '".$username."'"); 
+     $checkclan = mysql_query("SELECT * FROM users WHERE Username = '".$_SESSION['Username']."'"); 
      $row = mysql_fetch_array($checkclan);
-     var_dump($checkclan);
      if(empty($row['clanName']))
      { 
      ?>
@@ -27,17 +26,16 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['Username']))
      else
      {
      ?>
-
      <?php
-     $result = mysql_query("SELECT * FROM users WHERE clanName = '".$row['clanName']."'");
-     $row = mysql_fetch_array($result,MYSQL_NUM)
-     ?>
-     <p>Clan Name: <code><?$row['clanName']?></code> </p>
-     <p>Headquarters: <code><?$row['headquarters']?></code></p>
-     <p>Profession: <code><?$row['profession']?></code></p>
-     <p>Treasury: <code><?.$row['treasury']?></code></p>
-     <p>Population: <code><?$row['clanPopulation']?></code></p>
-
+     $result = mysql_query("SELECT * FROM ClanInfo WHERE clanName = '".$row['clanName']."'");
+     $row = mysql_fetch_array($result);
+     echo "<p>&nbsp;</p>";
+     echo "<p><strong>Clan Name: </strong>".$row['clanName']."</p>";
+     echo "<p><strong>Headquarters: </strong>".$row['headquarters']."</p>";
+     echo "<p><strong>Profession: </strong>".$row['profession']."</p>";
+     echo "<p><strong>Treasury: </strong>".$row['treasury']."</p>";
+     echo "<p><strong>Population: </strong>".$row['clanPopulation']."</p>"; 
+     ?> 
      <?php
      }
      ?>
