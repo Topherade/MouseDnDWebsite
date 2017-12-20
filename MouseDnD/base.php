@@ -9,6 +9,7 @@ $dbpass = "Powershot1"; // the password that you created, or were given, to acce
 mysql_connect($dbhost, $dbuser, $dbpass) or die("MySQL Error: " . mysql_error());
 mysql_select_db($dbname) or die("MySQL Error: " . mysql_error());
 ?>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />

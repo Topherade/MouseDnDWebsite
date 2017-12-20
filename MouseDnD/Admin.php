@@ -19,12 +19,13 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['Username']))
      if(mysql_num_rows($checkadmin) == 1)
      {
      ?>
-	 <form method="post" action="AddItem.php" name="ItemAdditionform" id="ItemAdditionform">
+         <script src="JavaScripts/ItemDropDown.js"></script>
+	 <form method="post" action="AddItem.php" name="ItemAdditionform" id="ItemAdditionform" style = "width: 25%"/>
 	    <fieldset>
 	        <legend><strong>Add an Item to Item List:</strong></legend>
-                <label for="ItemType"></label>
+                <label for="ItemType">Category:</label>
 			<select id="ItemType" name="ItemType">
-				<option value="">Category</option>
+				<option value="">-- Select a Type--</option>
 				<option value="Weapon">Weapon</option>
 				<option value="Armor">Armor</option>
 				<option value="Equipment">Equipment</option>
@@ -33,21 +34,15 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['Username']))
 				<option value="Livestock">Livestock</option>
 				<option value="Transportation">Transportation</option>			
                 	</select>
-		<label for="ItemSubtype"> - </label>
+		<br />
+		<label for="ItemSubtype">SubType</label>
                         <select id="ItemSubtype" name="ItemSubtype">
-                                <option value="">SubType</option>
-				<option value="Weapon">Weapon</option>
-                                <option value="Armor">Armor</option>
-                                <option value="Equipment">Equipment</option>
-                                <option value="Magic Item">Magic Item</option>
-                                <option value="Trade Goods">Trade Goods</option>
-                                <option value="Livestock">Livestock</option>
-                                <option value="Transportation">Transportation</option>
-                        </select>
+                        	<option value=""></option>
+			</select>
 		<br />
 	        <label for="Item">Item:</label><input type="text" name="Item" id="Item" /><br />
 		<label for="BasePrice">Base Price:</label><input type="text" name="BasePrice" id="BasePrice" /><br />	    
-	        <input type="submit" name="Add Item" id="create" value="create" />
+	        <input type="submit" name="AddItem" id="AddItem" value="Add Item" />
 	    </fieldset>
 	 </form>
 
