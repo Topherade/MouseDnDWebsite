@@ -7,6 +7,7 @@
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>  
 <body>  
+<header id="pageHeader"><h1>Clan Creation</h1></header>
 <div id="main">
 <?php
 if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['Username']))
@@ -58,8 +59,6 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['Username']))
 	{
 	    ?>
      
-	   <h1>Clan Creation</h1>
-	     
 	   <p>Please enter your details below to create your clan.</p>
      
 	    <form method="post" action="ClanCreation.php" name="ClanCreationform" id="ClanCreationform">

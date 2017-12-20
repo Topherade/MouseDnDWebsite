@@ -7,12 +7,12 @@
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>  
 <body>  
+<header id="pageHeader"><h1>Clan Info </h1></header>
 <div id="main">
 <?php
 if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['Username']))
 {
      ?>
-     <h1>Clan Info </h1>
      <p>You are logged in as <code><?=$_SESSION['Username']?></code>,<a href="logout.php">click here to logout</a>.</p>  
      <?php
      $checkclan = mysql_query("SELECT * FROM users WHERE Username = '".$_SESSION['Username']."'"); 

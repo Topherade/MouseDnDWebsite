@@ -7,6 +7,7 @@
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>  
 <body>  
+<header id="pageHeader"><h1>Insert Header Here</h1></header>
 <div id="main">
 <?php
 if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['Username']))

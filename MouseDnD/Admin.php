@@ -7,6 +7,7 @@
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 <body>
+<header id="pageHeader"><h1>Welcome to the Admin Page!</h1></header>
 <div id="main">
 <?php
 if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['Username']))
@@ -18,7 +19,6 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['Username']))
      if(mysql_num_rows($checkadmin) == 1)
      {
      ?>
-         <h1>Welcome To the Admin Page</h1>
 	 <form method="post" action="AddItem.php" name="ItemAdditionform" id="ItemAdditionform">
 	    <fieldset>
 	        <legend><strong>Add an Item to Item List:</strong></legend>
