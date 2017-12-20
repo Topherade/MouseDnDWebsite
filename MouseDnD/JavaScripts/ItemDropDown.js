@@ -3,24 +3,25 @@ $(document).ready(function() {
     $("#ItemType").change(function() {
         var val = $(this).val();
         if (val == "Weapon") {
-            $("#ItemSubtype").html("<option value='test'>item1: test 1</option><option value='test2'>item1: test 2</option>");
-        } else if (val == "Armor") {
-            $("#ItemSubtype").html("<option value='test'>item2: test 1</option><option value='test2'>item2: test 2</option>");
+            $("#ItemSubtype").html("<option value='Simple Melee'>Simple Melee</option><option value='Martial Melee'>Martial Melee</option><option value='Simple Ranged'>Simple Ranged</option><option value='Martial Ranged'>Martial Ranged</option>");
+        
+		} else if (val == "Armor") {
+            $("#ItemSubtype").html("<option value='Cloth'>Cloth</option><option value='Light'>Light</option><option value='Medium'>Medium</option><option value='Heavy'>Heavy</option>");
 
         } else if (val == "Equipment") {
-            $("#ItemSubtype").html("<option value='test'>item3: test 1</option><option value='test2'>item3: test 2</option>");
+            $("#ItemSubtype").html("<option value='Common'>Common</option><option value='Uncommon'>Uncommon</option><option value='Rare'>Rare</option><option value='Epic'>Epic</option><option value='Legendary'>Legendary</option>");
 
         }else if (val == "Magic Item") {
-            $("#ItemSubtype").html("<option value='test'>item4: test 1</option><option value='test2'>item3: test 2</option>");
+            $("#ItemSubtype").html("<option value='Common'>Common</option><option value='Uncommon'>Uncommon</option><option value='Rare'>Rare</option><option value='Epic'>Epic</option><option value='Legendary'>Legendary</option>");
 
         }else if (val == "Trade Goods") {
-            $("#ItemSubtype").html("<option value='test'>item5: test 1</option><option value='test2'>item3: test 2</option>");
+            $("#ItemSubtype").html("<option value='Common'>Common</option><option value='Uncommon'>Uncommon</option><option value='Rare'>Rare</option><option value='Epic'>Epic</option><option value='Legendary'>Legendary</option>");
 
         }else if (val == "Livestock") {
-            $("#ItemSubtype").html("<option value='test'>item6: test 1</option><option value='test2'>item3: test 2</option>");
+            $("#ItemSubtype").html("<option value='Standard'>Standard</option><option value='Grasshopper'>Grasshopper</option><option value='Spider'>Spider</option><option value='Ant'>Ant</option>");
 
         }else if (val == "Transportation") {
-            $("#ItemSubtype").html("<option value='test'>item7: test 1</option><option value='test2'>item3: test 2</option>");
+            $("#ItemSubtype").html("<option value='Land'>Land</option><option value='Sea'>Sea</option><option value='Air'>Air</option>");
 
         }
         
