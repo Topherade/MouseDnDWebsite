@@ -63,23 +63,14 @@ header, footer, main, nav, div {
   background-color: #fff;
   }
 
-form fieldset { border: 0; }
-form fieldset p br { clear: left; }
-label {
-    margin-top: 5px;
-    display: block;
-    width: 100px;
-    padding: 0;
-    float: left;
-}
 input:hover {
     border: 1px solid #222;
     background-color: #f7e8ba;
 }
 
 input[type=text], select, textarea{
-    width: 50px;
-    height: 30px;
+    width: 200px;
+    height: 25px;
     padding: 12px;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -87,46 +78,43 @@ input[type=text], select, textarea{
     resize: vertical;
 }
 
+input[type=password], select, textarea{
+    width: 200px;
+    height: 25px;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    resize: vertical;
+}
+
+form fieldset { 
+    border: 0;
+ }
+
 label {
-    padding: 12px 12px 12px 0;
+    width:5%;
+    margin-right:0.5em;
+    padding-top:0.2em;
+    text-align:right;
+    font-weight:bold;
+    padding: 0;
+    padding-top: .2em;
     display: inline-block;
+    float: left;
 }
 
 input[type=submit] {
-    background-color: #4CAF50;
-    color: white;
+    background-color: #55deef;
+    color: #fff;
     padding: 12px 20px;
-    border: none;
+    border: 1px solid #fff;
     border-radius: 4px;
     cursor: pointer;
     float: right;
 }
 
 input[type=submit]:hover {
-    background-color: #45a049;
+    background-color: #0d7d8c;
 }
 
-.container {
-    border-radius: 5px;
-    background-color: #55deef;
-    padding: 20px;
-}
-
-.col-25 {
-    float: left;
-    width: 25%;
-    margin-top: 6px;
-}
-
-.col-75 {
-    float: left;
-    width: 75%;
-    margin-top: 6px;
-}
-
-/* Clear floats after the columns */
-.row:after {
-    content: "";
-    display: table;
-    clear: both;
-}
