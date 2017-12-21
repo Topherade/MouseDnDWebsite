@@ -37,17 +37,26 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['Username']))
 	        {
 			 $registerqueryClanName = mysql_query("UPDATE users SET clanName = '".$clanname."' WHERE Username = '".$_SESSION['Username']."'");
 		         if($registerqueryClanName)
-	                 {
+	             {
+	                   $registerquery = mysql_query("CREATE TABLE if not exists ".$clanname."Inventory(id int not null auto_increment, Item varchar(255) not null, Quantity int(11), primary key(id));");
+		              if($registerquery)
+	                  {
        	        	     echo "<h1>Success</h1>";
         	             echo "<p>Your clan was successfully created. Please <a href=\"ClanInfo.php\">click here to view your Clan</a>.</p>";
-                  	 }
-                 	 else
-               	 	 {
+                  	  }
+                      else
+               	 	  {
                  	     echo "<h1>Error</h1>";
-                   	     echo "<p>Sorry, your clan creation failed. Please go back and try again.</p>";
-                 	 }
-
+                   	     echo "<p>Sorry, your clan creation failed Inventory Setup. Please contact a coder.</p>";
+                 	   }
                 }
+                else
+               	{
+                 	echo "<h1>Error</h1>";
+                   	echo "<p>Sorry, your clan creation failed. Please go back and try again.</p>";
+                }
+
+            }
 	        else
 	        {
 	            echo "<h1>Error</h1>";
@@ -55,17 +64,6 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['Username']))
 	        }       
              }
 			 
-	     $registerquery = mysql_query("CREATE TABLE if not exists ".$clanname."Inventory(id int not null auto_increment, Item varchar(255) not null, Quantity int(11), primary key(id));");
-		 if($registerquery)
-	                 {
-       	        	     echo "<h1>Success</h1>";
-        	             echo "<p>Your clan was successfully created. Please <a href=\"ClanInfo.php\">click here to view your Clan</a>.</p>";
-                  	 }
-          else
-               	 	 {
-                 	     echo "<h1>Error</h1>";
-                   	     echo "<p>Sorry, your clan creation failed Inventory Setup. Please contact a coder.</p>";
-                 	 }
 
 	}
 	else
