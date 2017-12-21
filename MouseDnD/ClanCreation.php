@@ -54,6 +54,19 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['Username']))
 	            echo "<p>Sorry, your clan creation failed. Please go back and try again.</p>";
 	        }       
              }
+			 
+	     $registerquery = mysql_query("CREATE TABLE if not exists '".$clanname."'Inventory(id int not null auto_increment, Item varchar(255) not null, Quantity int(11), primary key(id));");
+		 if($registerquery)
+	                 {
+       	        	     echo "<h1>Success</h1>";
+        	             echo "<p>Your clan was successfully created. Please <a href=\"ClanInfo.php\">click here to view your Clan</a>.</p>";
+                  	 }
+          else
+               	 	 {
+                 	     echo "<h1>Error</h1>";
+                   	     echo "<p>Sorry, your clan creation failed Inventory Setup. Please contact a coder.</p>";
+                 	 }
+
 	}
 	else
 	{
