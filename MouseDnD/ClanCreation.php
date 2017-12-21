@@ -55,7 +55,7 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['Username']))
 	        }       
              }
 			 
-	     $registerquery = mysql_query("CREATE TABLE if not exists '".$clanname."'Inventory(id int not null auto_increment, Item varchar(255) not null, Quantity int(11), primary key(id));");
+	     $registerquery = mysql_query("CREATE TABLE if not exists ".$clanname."Inventory(id int not null auto_increment, Item varchar(255) not null, Quantity int(11), primary key(id));");
 		 if($registerquery)
 	                 {
        	        	     echo "<h1>Success</h1>";
