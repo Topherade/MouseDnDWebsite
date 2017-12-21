@@ -19,7 +19,44 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['Username']))
      if(mysql_num_rows($checkadmin) == 1)
      {
      ?>
-     <p><a href="Admin.php">Back to Admin Page</a></p>
+          <p><a href="Admin.php">Back to Admin Page</a></p>
+     <?php
+     	if(!empty($_POST['ItemType']) && !empty($_POST['ItemSubType']) && !empty($_POST['Item'])&& !empty($_POST['BasePrice'])&& !empty($_POST['Weight']))
+	{
+	    $itemtype = mysql_real_escape_string($_POST['ItemType']);
+	    $itemsubtype = mysql_real_escape_string($_POST['ItemSubType']);
+		$item = mysql_real_escape_string($_POST['Item']);
+	    $baseprice = mysql_real_escape_string($_POST['BasePrice']);
+		$weight = mysql_real_escape_string($_POST['Weight']);
+		$damage = mysql_real_escape_string($_POST['Damage']);
+		$protection = mysql_real_escape_string($_POST['Protection']);
+		$info = mysql_real_escape_string($_POST['Info']);
+	    
+        $checkclanname = mysql_query("SELECT * FROM Items WHERE Item = '".$item."'");
+	      
+	     if(mysql_num_rows($checkclanname) == 1)
+	     {
+	        echo "<h1>Error</h1>";
+	        echo "<p>Sorry, that item is already created. <a href=\"AdminCreateItem.php\">Please go back and try again.</a></p>";
+	     }
+	     else
+	     {
+	        $registerquery = mysql_query("INSERT INTO Items (ItemType, ItemSubType, Item, BasePrice, Weight, Damage, Protection, Info) VALUES('".$itemtype."', '".$itemsubtype."', '".$item."', '".$baseprice."', '".$weight."', '".$damage."', '".$protection."', '".$info."')");
+
+	 	if($registerquery)
+	        {
+       	        echo "<h1>Success</h1>";
+        	    echo "<p>Your Item was successfully created. <a href=\"AdminCreateItem.php\">click here to create another Item</a>.</p>";
+				echo "<p><a href=\"Admin.php\">click here to return to Admin Page</a>.</p>";
+			}
+			else
+	        {
+	            echo "<h1>Error</h1>";
+	            echo "<p>Sorry, your clan creation failed. <a href=\"AdminCreateItem.php\">Please go back and try again.</a></p>";
+	        }       
+        }
+	}
+    ?>
          <script src="JavaScripts/ItemDropDown.js"></script>
      <form method="post" action="AdminCreateItem.php" name="ItemAdditionform" id="ItemAdditionform" style = "width: 25%"/>
         <fieldset>
