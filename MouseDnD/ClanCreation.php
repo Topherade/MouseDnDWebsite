@@ -57,7 +57,7 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['Username']))
                 }
 
             }
-	        else
+	        else 
 	        {
 	            echo "<h1>Error</h1>";
 	            echo "<p>Sorry, your clan creation failed. Please go back and try again.</p>";
