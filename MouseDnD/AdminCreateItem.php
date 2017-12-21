@@ -21,10 +21,10 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['Username']))
      ?>
           <p><a href="Admin.php">Back to Admin Page</a></p>
      <?php
-     	if(!empty($_POST['ItemType']) && !empty($_POST['ItemSubType']) && !empty($_POST['Item'])&& !empty($_POST['BasePrice'])&& !empty($_POST['Weight']))
+     	if(!empty($_POST['ItemType']) && !empty($_POST['ItemSubtype']) && !empty($_POST['Item'])&& !empty($_POST['BasePrice'])&& !empty($_POST['Weight']))
 	{
 	    $itemtype = mysql_real_escape_string($_POST['ItemType']);
-	    $itemsubtype = mysql_real_escape_string($_POST['ItemSubType']);
+	    $itemsubtype = mysql_real_escape_string($_POST['ItemSubtype']);
 		$item = mysql_real_escape_string($_POST['Item']);
 	    $baseprice = mysql_real_escape_string($_POST['BasePrice']);
 		$weight = mysql_real_escape_string($_POST['Weight']);
