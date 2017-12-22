@@ -35,7 +35,7 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['Username']))
      echo "<p><strong>Profession: </strong>".$row['profession']."</p>";
      echo "<p><strong>Treasury: </strong>".$row['treasury']."</p>";
      echo "<p><strong>Population: </strong>".$row['clanPopulation']."</p>"; 
-	 echo "<p><a href="ClanInventory.php">Click here access the ".$row['clanName']." Clan's Inventory</a></p>";
+	 echo "<p><a href=ClanInventory.php>Click here access the ".$row['clanName']." Clan's Inventory</a></p>";
      ?> 
      <?php
      }
