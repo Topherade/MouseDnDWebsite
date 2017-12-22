@@ -27,6 +27,7 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['Username']))
      {
      ?>
      <?php
+     $_SESSION['ClanName'] = $row['clanName'];
      $result = mysql_query("SELECT * FROM ClanInfo WHERE clanName = '".$row['clanName']."'");
      $row = mysql_fetch_array($result);
      echo "<p>&nbsp;</p>";
