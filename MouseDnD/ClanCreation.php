@@ -72,7 +72,7 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['Username']))
      
 	   <p>Please enter your details below to create your clan.</p>
      
-	    <form method="post" action="ClanCreation.php" name="ClanCreationform" id="ClanCreationform">
+	    <form method="post" action="ClanCreation.php" name="ClanCreationform" id="ClanCreationform" style = "width: 25%">
 	    <fieldset>
 	        <label for="clanname">Clan Name:</label><input type="text" name="clanname" id="clanname" /><br />
 	        <label for="profession">Profession:</label><input type="text" name="profession" id="profession" /><br />
