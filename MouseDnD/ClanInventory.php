@@ -25,12 +25,11 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['Username']))
      $results = mysql_query($query);
      while ($row = mysql_fetch_array($results)) {
         echo '<tr>';
-        echo '<td>' .$row['Item']. '</td>';
         $iteminfo=mysql_query("SELECT * FROM Items WHERE Item = '".$row['Item']."'");
         $itemrow = mysql_fetch_array($iteminfo);
-        var_dump(mysql_num_rows($itemrow));
         if(! empty($itemrow))
         {
+			echo '<td><div class=\"tooltip\">' .$row['Item']. '<span class=\"tooltiptext\">'. "cats". '</span></div></td>';
             echo '<td>' .$itemrow['BasePrice']. '</td>';
         }
         else
