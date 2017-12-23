@@ -3,7 +3,6 @@ x-sizing: border-box;
 }
 body {
     font-family: Trebuchet MS;
-    background-color: #55deef;
 }
 a {
     color: #fff;
@@ -24,11 +23,10 @@ body {
   height: 100vh;
   margin: 0;
   background-color: #55deef;
-  }
+}
   
 header, footer, main, nav, div {
   padding: 1em;
-  background: #55deef;
   }
 
 #boarder{
@@ -137,13 +135,12 @@ tr:nth-child(odd) {
 .tooltip {
     position: relative;
     display: inline-block;
-    border-bottom: 1px dotted black;
 }
 
 .tooltip .tooltiptext {
     visibility: hidden;
     width: 120px;
-    background-color: black;
+    background-color: #55deef;
     color: #fff;
     text-align: center;
     border-radius: 6px;
@@ -169,4 +166,5 @@ tr:nth-child(odd) {
 }
 .tooltip:hover .tooltiptext {
     visibility: visible;
+    opacity: 1;
 }

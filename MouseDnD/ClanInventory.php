@@ -16,6 +16,8 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['Username']))
      <table>
         <tr>
 	   <th>Item</th>
+	   <th>Type</th>
+           <th>Subtype/Rarity</th>
            <th>Base Value</th>
            <th>Quantity</th>
            <th>Actions</th>
@@ -29,8 +31,10 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['Username']))
         $itemrow = mysql_fetch_array($iteminfo);
         if(! empty($itemrow))
         {
-			echo '<td><div class=\"tooltip\">' .$row['Item']. '<span class=\"tooltiptext\">'. "cats". '</span></div></td>';
-            echo '<td>' .$itemrow['BasePrice']. '</td>';
+           echo '<td><div class="tooltip">' .$row[Item].'<span class="tooltiptext">'.'Stats <br />Weight: '.$itemrow['Weight'].'<br /> Damage: '.$itemrow['Damage'].'<br /> Protection: '.$itemrow['Protection'].'<br /> Info: '.$itemrow['Info'].'</span></div></td>';
+	   echo '<td>' .$itemrow['ItemType']. '</td>';
+           echo '<td>' .$itemrow['ItemSubtype']. '</td>';
+	   echo '<td>' .$itemrow['BasePrice']. '</td>';
         }
         else
         {
