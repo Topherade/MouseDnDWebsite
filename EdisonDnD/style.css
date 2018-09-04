@@ -18,7 +18,7 @@
 		
 		font-size: 30px;
 		font-family:Georgia;
-		color:#2F3D5E;
+		color:#f1eee9;
 		letter-spacing:5px;
 		text-align:center;
 	}
@@ -63,10 +63,17 @@
 		text-align:center;
 	}
     
-    link {
+    li {
         color: #C1BEBA;
     }
 	
+    a {
+        color: #C1BEBA;
+    }
+	
+    h2 {
+        color: #f1eee9;
+    }
 
 h2{
 	font-size: 35px;
