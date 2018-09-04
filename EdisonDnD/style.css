@@ -64,19 +64,15 @@
 	}
     
     li {
-        color: #C1BEBA;
+        color: #f1eee9;
     }
 	
     a {
-        color: #C1BEBA;
-    }
-	
-    h2 {
         color: #f1eee9;
     }
-
-h2{
-	font-size: 35px;
-	font-family:Georgia;
-		color:#2F3D5E;
-}
+	
+    h2{
+        font-size: 35px;
+        font-family:Georgia;
+		color:#f1eee9;
+    }
