@@ -14,7 +14,7 @@
 	header {
 		background-color:#55deef;
 		padding:1px 0px 1px 0px;
-		margin:10px 50px 20px 50px;
+		margin:0px 50px 0px 50px;
 		
 		font-size: 30px;
 		font-family:Georgia;
@@ -27,7 +27,7 @@
 	background-color: #323232;
 	height: auto;
 	padding: 25px;
-	margin: 10px 50px 20px 0px;
+	margin: 0px 50px 0px 0px;
 	float: right;
 	width: 60%;
 	font-family: Verdana;
@@ -40,7 +40,7 @@
 	background-color: #55deef;
 	height: auto;
 	padding: 25px;
-	margin: 10px 0px 20px 50px;
+	margin: 0px 0px 0px 50px;
 	float: left;
 	width: 20%;
 	font-family: Verdana;
@@ -62,6 +62,10 @@
 		color:#FFFFFF;
 		text-align:center;
 	}
+    
+    link {
+        color: #C1BEBA;
+    }
 	
 
 h2{
